@@ -5,9 +5,12 @@ var show = (x) => {
 var operator;
 store1 = 0
 var operate = (x) => {
-    store1 = document.getElementById("inputTxtbx").value
-    document.getElementById("inputTxtbx").value = " "
+    if(document.getElementById("inputTxtbx").value != "" || document.getElementById("inputTxtbx").value != null){
+        store1 = document.getElementById("inputTxtbx").value || store1
+    }
+    document.getElementById("inputTxtbx").value = ""
     operator = x
+    document.getElementById("showOperator").innerHTML = operator
 }
 
 store2 = 0
@@ -24,6 +27,8 @@ var solve = () => {
     }
 
     document.getElementById("inputTxtbx").value = result
+    document.getElementById("showOperator").innerHTML = ""
+    operator = ""
 }
 
 var Clear = () =>{
