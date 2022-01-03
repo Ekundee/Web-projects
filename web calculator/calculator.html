@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .full_page{
+            position : absolute;
+            left: 0px;
+            top : 0px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("calculatorBack.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }.border-div{
+            position: relative;
+            width: 350px;
+            height: 90%;
+            padding: 2px;
+            background-color : rgb(0, 0, 0, 8%);
+            border-radius: 25px;
+            border: solid #000;
+            border-width:  2px;
+        }.calculator_div{
+            position: relative;
+            width: 350px;
+            height: 100%;
+            background-color : rgb(196, 196, 196, 15%);
+            border-radius: 25px;
+        }
+        .header{
+            position:relative;
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }.main{
+            position:relative;
+            width: 100%;
+            height: 30%;
+            box-sizing: border-box;
+            display: grid;
+            place-items: center;
+
+        }.calculator-icon{
+            position: relative;
+            width: 35px;    
+            height : 35px;
+        }
+        .input_txtbx{
+            position:relative;
+            width: 94%;
+            height: 85%;
+            border-radius: 17px;
+            outline: none;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }.footer{
+            position: relative;
+            width: 100%;
+            box-sizing:border-box;
+            height: 60%;
+            padding: 2%;
+            
+        }.footer-left{
+            width: 80%;
+            display: grid;
+            grid-template-columns: auto auto auto auto; 
+            gap : 10px;
+            float: left;
+            height: 100%;
+            position :relative;
+        }.footer-right{
+            width: 20%;
+            float: right;
+            display: grid;
+            place-items: center;   
+            height: 100%;      
+        }.buttons{
+            position :relative;
+            width: 60px;
+            height : 60px;
+            border-radius: 1000px;
+            font-size: 1.3rem;
+            background-image: linear-gradient(180deg, #000AF8 0%, #171829 100%);
+            color: white;
+        }.equal-buttons{
+            position: relative;
+            width: 80%;
+            height: 305px;
+            font-size: 1.3rem;
+            background-image: linear-gradient(180deg, #000AF8 0%, #171829 100%);
+            color: white;
+            margin-left: 6px;
+            margin-bottom: 6px;
+            border-radius: 20px;
+        }
+
+
+        @media (max-width : 400px) {
+            .border-div{
+                width: 100%;
+                height: 100%;
+               box-sizing: border-box;
+                padding: 0px;
+            }.calculator_div{
+                width: 100%;
+                height: 100%;
+            }.equal-buttons{
+                height: 315px;
+                margin-bottom: 20px;
+            }.footer-left{
+                gap: 2px;
+            }.footer{
+                padding-top: 4%;
+                padding-bottom: 4%;
+            }.buttons{
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full_page">
+        <div class="border-div">
+            <div class="calculator_div">
+            <div class="header">
+                <label for=""> <img src="calculatorIcon.png" class="calculator-icon" alt="" srcset=""> <label style="top: -8px; position: relative;">Calculator</label></label>
+            </div>
+            <div class="main">
+                <input type="text" name="" id="inputTxtbx" class="input_txtbx">
+            </div>
+            <div class="footer">
+                <div class="footer-left">
+                    <input type="button" class="buttons" value="7" onclick="show('7')">
+                    <input type="button" class="buttons" value="8" onclick="show('8')">
+                    <input type="button" class="buttons" value="9" onclick="show('9')">
+                    <input type="button" class="buttons" value="+" onclick="operate('+')">
+    
+                    <input type="button" class="buttons" value="4" onclick="show('4')">
+                    <input type="button" class="buttons" value="5" onclick="show('5')">
+                    <input type="button" class="buttons" value="6" onclick="show('6')">
+                    <input type="button" class="buttons" value="-" onclick="operate('-')">
+    
+    
+                    <input type="button" class="buttons" value="1" onclick="show('1')">
+                    <input type="button" class="buttons" value="2" onclick="show('2')">
+                    <input type="button" class="buttons" value="3" onclick="show('3')">
+                    <input type="button" class="buttons" value="*" onclick="operate('*')">
+                    
+                    <input type="button" class="buttons" value="0" onclick="show('0')">
+                    <input type="button" class="buttons" value="." onclick="show('.')">
+                    <input type="button" class="buttons" value="c" onclick="Clear()">
+                    <input type="button" class="buttons" value="/" onclick="operate('/')">   
+                </div>
+                <div class="footer-right">
+                    <input type="button" class="equal-buttons" value="=" onclick="solve()">
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+
+     <script src="calculator.js"></script>
+
+     <script>
+            
+     </script>
+</body>
+</html>
