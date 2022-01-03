@@ -1,38 +1,80 @@
+storeIN1 = true
+storeIN2 = false
+store = 0
 var show = (x) => {
-    document.getElementById("inputTxtbx").value += x
-}
-
-var operator;
-store1 = 0
-var operate = (x) => {
-    if(document.getElementById("inputTxtbx").value != "" || document.getElementById("inputTxtbx").value != null){
-        store1 = document.getElementById("inputTxtbx").value || store1
+    if(storeIN1 == true){
+        document.getElementById("inputTxtbx").value = ""  
+        storeIN1 = false
     }
-    document.getElementById("inputTxtbx").value = ""
-    operator = x
-    document.getElementById("showOperator").innerHTML = operator
+    if(storeIN2 == true){
+        document.getElementById("inputTxtbx").value = ""  
+        storeIN2 = false    
+    }
+    document.getElementById("inputTxtbx").value += x
+
 }
 
-store2 = 0
-var solve = () => {
+tobeUsedOperator = ""
+ini_storage = 0
+storage = 0
+operator = ""
+var operate = (x)=>{  
+    operator = x 
+    storeIN2 = true
+    storage = document.getElementById("inputTxtbx").value 
+    if(tobeUsedOperator != ""){
+        if(tobeUsedOperator == "+"){
+            store =  parseFloat(ini_storage)+parseFloat(storage) 
+            ini_storage = store
+        }else if(tobeUsedOperator == "-"){
+            store = parseFloat(ini_storage) - parseFloat(storage)
+            ini_storage = store
+        }else if(tobeUsedOperator == "/"){
+            store = parseFloat(ini_storage) /parseFloat(storage)
+            ini_storage = store
+        }else if(tobeUsedOperator == "*"){
+            store = parseFloat(ini_storage) *parseFloat(storage)
+            ini_storage = store
+        }
+        document.getElementById("inputTxtbx").value = store
+    }else{
+        ini_storage = storage
+        document.getElementById("inputTxtbx").value = storage
+    }
+    tobeUsedOperator = x
+    document.getElementById("showOperator").innerHTML = x
+    
+}
+
+
+var solve =()=>{
     store2 = document.getElementById("inputTxtbx").value
     if (operator == "+") {
-        result = parseFloat(store1) + parseFloat(store2)
+        result = parseFloat(ini_storage) + parseFloat(store2)
     } else if (operator == "-") {
-        result = parseFloat(store1) - parseFloat(store2)
+        result = parseFloat(ini_storage) - parseFloat(store2)
     } else if (operator == "/") {
-        result = parseFloat(store1) / parseFloat(store2)
+        result = parseFloat(ini_storage) / parseFloat(store2)
     } else if (operator == "*") {
-        result = parseFloat(store1) * parseFloat(store2)
+        result = parseFloat(ini_storage) * parseFloat(store2)
     }
-
     document.getElementById("inputTxtbx").value = result
+    tobeUsedOperator = ""
     document.getElementById("showOperator").innerHTML = ""
     operator = ""
 }
 
+
+
+
+
 var Clear = () =>{
-            document.getElementById("inputTxtbx").value = ""
-            store1 = 0
-            store2 = 0
-        }
+    document.getElementById("inputTxtbx").value = ""
+    storage = 0
+    ini_storage = 0
+    tobeUsedOperator = 0
+    store2 = 0
+    document.getElementById("showOperator").innerHTML = ""
+    operator = ""
+}
+
