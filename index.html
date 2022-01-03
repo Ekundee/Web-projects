@@ -106,6 +106,12 @@
             color: white;
             margin-left: 6px;
             border-radius: 20px;
+        }.show_operator{
+            position: absolute;
+            top: 17px;
+            z-index: 3;
+            left: 17px;
+            font-weight: 1000;
         }
 
 
@@ -137,6 +143,7 @@
                 <label for=""> <img src="calculatorIcon.png" class="calculator-icon" alt="" srcset=""> <label style="top: -8px; position: relative;">Calculator</label></label>
             </div>
             <div class="main">
+                <label for="" id ="showOperator" class="show_operator"></label>
                 <input type="text" name="" id="inputTxtbx" readonly class="input_txtbx">
             </div>
             <div class="footer">
