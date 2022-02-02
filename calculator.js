@@ -13,6 +13,7 @@ var show = (x) => {
     document.getElementById("inputTxtbx").value += x
 
 }
+//operator to be used
 
 tobeUsedOperator = ""
 ini_storage = 0
